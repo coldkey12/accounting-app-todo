@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=accounting-todo
+    username: postgres
+    password: 12070107Don
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        envers:
+          autoRegisterListeners: true
+          store_data_at_delete: true
+          audit_table_suffix: _history
+          revision_field_name: revision
+          revision_type_field_name: revision_type
+    flyway:
+      url: jdbc:postgresql://localhost:5432/postgres?currentSchema=accounting-todo
+      user: postgres
+      password: 12070107Don
+      locations: classpath:db/migration
+
+jwt:
+  secret: ${JWT_SECRET:7x4hB2vT9qYpXwLcRfUjMnZk6tAeDgHsKbP3yV5N8WmQrJdFt0z1C}
+  expiration: 86400000
+  refresh-expiration: 604800000
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    kz.don.accounting-app: TRACE
+    org.hibernate: DEBUG
