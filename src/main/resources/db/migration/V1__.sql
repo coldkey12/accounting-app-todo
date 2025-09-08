@@ -5,7 +5,7 @@ CREATE TABLE transactions
     product_id       UUID                        NOT NULL,
     transaction_type VARCHAR(255),
     sum              DOUBLE PRECISION            NOT NULL,
-    quantity         DOUBLE PRECISION            NOT NULL,
+    quantity         INTEGER                     NOT NULL,
     price_per_piece  DOUBLE PRECISION            NOT NULL,
     created_at       TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated_at       TIMESTAMP WITHOUT TIME ZONE NOT NULL,
